@@ -120,6 +120,7 @@ p = [ p1 ]
 sv = sw.svel(s, t, p)
 print("v= " + "%8.3f" %(sv) + "\n")
 
+BSLlength = 1000
 
 # for 1cm Baseline change
 dl = 0.01
