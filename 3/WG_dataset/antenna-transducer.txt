@@ -1,0 +1,5 @@
+# Distance between the main antenna (No.3 in Fig 1C) and the transducer (No.7 in Fig 1C)
+# 1: X-component [m], 2: Y-component [m], 3: Z-component [m]
+# Horizontal components are estimated from GNSS-A observational data
+# Vertical components are set from drawing (Fig 1C) 
+4.1296419376724403E-002  0.64891716296959445      -0.68

@@ -1,0 +1,8 @@
+# Seafloor Transponder (PXP) positions
+# 1: E-W component [m], 2: N-S component [m], 3 Height component [m]
+# The positions are calculated by Honsho et al. (2019, JGR)
+# Coordinate transformation center (Lon: 144:02.8208, Lat: 40:44.2267)
+  2322.301   907.790 -4669.618   PXP-A 
+  -662.386  2162.339 -4696.425   PXP-B
+ -2282.279  -930.346 -4617.816   PXP-C
+   643.532 -2142.965 -4635.294   PXP-D
