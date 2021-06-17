@@ -75,7 +75,7 @@ while (x_off > convergence_check)
         case 'vincent'
             [t_oneway,r_oneway,x_range] = ray_trace_vincent(sound_speeds,layer_depths,receiver_depth,geodesic_range,source_depth,theta_check);
         case 'julian'
-            [t_oneway,r_oneway,x_range] = ray_trace_julian(sound_speeds,layer_depths,receiver_depth,geodesic_range,source_depth,theta_check,earth_radius)
+            [t_oneway,r_oneway,x_range] = ray_trace_julian(sound_speeds,layer_depths,receiver_depth,geodesic_range,source_depth,theta_check,earth_radius);
     end
     
     % or is perfectly vertical (so check for that case as well);
@@ -135,7 +135,7 @@ theta_best = theta_init;
         case 'vincent'
             [t_oneway,r_oneway,x_range] = ray_trace_vincent(sound_speeds,layer_depths,receiver_depth,geodesic_range,source_depth,theta_best);
         case 'julian'
-            [t_oneway,r_oneway,x_range] = ray_trace_julian(sound_speeds,layer_depths,receiver_depth,geodesic_range,source_depth,theta_best,earth_radius)
+            [t_oneway,r_oneway,x_range] = ray_trace_julian(sound_speeds,layer_depths,receiver_depth,geodesic_range,source_depth,theta_best,earth_radius);
     end
  launch_angle = theta_best.*180./pi;
 % disp(['Found horizontal range ',num2str(x_range,'%10.5f m'),' using  ',num2str(launch_angle,'%14.10f'),' for launch angle'])

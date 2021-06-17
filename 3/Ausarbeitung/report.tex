@@ -1,0 +1,46 @@
+ %% Simplified vision for Ausarbeitungen
+\input{extras/header}
+
+\begin{document}
+\selectlanguage{ngerman}
+\pagenumbering{Roman}
+\pagestyle{plain}
+
+%% Title
+\includepdf[pages=1]{title}
+
+%% Table of contents
+\pagestyle{scrheadings}
+\clearscrheadfoot            % Standardkram wegwerfen
+\ohead[\pagemark]{\pagemark} % oben außen Seitenzahl 
+%\input{extras/contents}
+
+% Pages number: roemisch
+% Nmber in the text: arabic
+\newcounter{roemisch}
+\setcounter{roemisch}{\value{page}}
+\pagenumbering{arabic}
+
+\ifiscorrect\linespread{1.5}\selectfont % ???: 1 1/2 (für bessere Korrektur)
+\else\fi
+
+%% Chapters
+% Kopfzeile: links Kapitel, rechts Sektion
+\clearscrheadfoot            % Standardkram wegwerfen
+\ohead[\pagemark]{\pagemark} % oben außen Seitenzahl 
+\ihead{\headmark}            % oben innen automatischer Abschnittsname
+\automark[]{section}
+\input{Kapitel1}
+
+
+\ifiscorrect\linespread{1.0}\selectfont% Zeilenabstand wieder auf 1 zurück
+\else\fi
+
+% Setze Numerierung wieder auf römisch zurück und setzte von oben fort
+% Wert ist demnach der von 'roemisch'
+\newpage
+\pagenumbering{Roman}
+\setcounter{page}{\value{roemisch}}
+
+
+\end{document}

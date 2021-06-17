@@ -33,12 +33,13 @@ c1 = interp1(layer_depths,sound_speeds,z1,'linear');
 c2 = interp1(layer_depths,sound_speeds,z2,'linear');
 
 % strip off any layers above and below the source and receiver respectively
-sound_speeds(layer_depths<z1 | layer_depths > z2) = [];
-layer_depths(layer_depths<z1 | layer_depths > z2) = [];
+sound_speeds(layer_depths < min(z1) | layer_depths > max(z2)) = [];
+layer_depths(layer_depths < min(z1) | layer_depths > max(z2)) = [];
 
 % wrap the profile with the source & receiver depths and interpolated speeds
 % (checking for degenerate case where layer boundaries are exactly equal to
 % either source of receiver depths)
+
 if layer_depths(1)>z1
     sound_speeds = [c1;sound_speeds];
     layer_depths = [z1;layer_depths];
@@ -77,7 +78,7 @@ w2 = repmat(mean_layer_speeds./bvect + 0.5.*layer_thicknesses,1,ntheta);
 b = repmat(bvect,1,ntheta);
 
 % from Chadwell & Sweeney:
-A1 = 1./(b.*k);                % dims: nlayers -1  x ntheta
+A1 = 1./(b .* k);                % dims: nlayers -1  x ntheta
 A2 = real(sqrt(1 - b.^2.*w2.^2.*k.^2));    % dims: nlayers -1  x ntheta
 A3 = real(sqrt(1 - b.^2.*w1.^2.*k.^2));    % dims: nlayers -1  x ntheta
 xdiff = A1.*(-A2 + A3);

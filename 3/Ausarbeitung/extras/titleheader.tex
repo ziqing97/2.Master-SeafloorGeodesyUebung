@@ -1,0 +1,59 @@
+\documentclass[%
+paper=a4,      % alle weiteren Papierformat einstellbar
+fontsize=11pt, % Schriftgröße (12pt, 11pt (Standard))
+BCOR1cm,       % Bindekorrektur, bspw. 1 cm
+twoside,       % Doppelseiten
+headsepline,   %
+headings=openright, % Kapitel nur rechts beginnen
+%biblography=totoc, % Literaturverzeichnis einfügen bibtotocnumbered: nummeriert
+parskip=half,  % Europäischer Satz mit Abstand zwischen Absätzen
+chapterprefix, % Kapitel anschreiben als Kapitel
+headsepline,   % Linie nach Kopfzeile
+titlepage,     %
+numbers=noenddot,
+%draft	       % zeigt überlange Zeilen an
+]{scrreprt}
+
+% anderer Satzspiegel für die Titelseite, deshalb in separaten Dokument
+\usepackage[textwidth=15.5cm,textheight=26.7cm,top=1.5cm,left=3cm,
+            ignoreall,noheadfoot,nomarginpar,footnotesep=0pt]{geometry} 
+
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}  % Zeichencodierung
+\usepackage[ngerman, english]{babel} % Worttrennung nach neuer Rechtschreibung
+\usepackage{ellipsis}       % Leerraum um Auslassungspunkte
+\usepackage{fixltx2e}       % Fehlerkorrektur Zeichensätze
+\usepackage{xspace}         % füge evtl. notwendiges Leerzeichen hinzu (\xspace)
+
+%\usepackage{mathptmx}           % Times + passende Mathefonts
+\usepackage{mathpazo}           % Palatino + passende Mathefonts
+\usepackage[scaled=.92]{helvet} % skalierte Helvetica als \sfdefault
+\usepackage{courier}            % Courier als \ttdefault
+
+\usepackage{graphicx}    % Einbindung von Grafiken
+\graphicspath{{bilder/}} % Unterverzeichnis, in dem Grafiken abgelegt werden
+\usepackage{listings}    % Listenausgabe externer Dateien
+\usepackage{subfigure}
+
+% Andere Schriftarten in Koma-Script
+\setkomafont{sectioning}{\normalfont\bfseries}
+\setkomafont{captionlabel}{\rmfamily\bfseries\small}
+\setkomafont{caption}{\mdseries\itshape\small}
+\setkomafont{pagehead}{\normalfont\itshape} % Kopfzeilenschrift
+\setkomafont{descriptionlabel}{\normalfont\bfseries}
+
+% weitere Einstellungen
+\tolerance=200               % übervolle Zeile vermeiden
+\emergencystretch=3em
+
+\clubpenalty=10000           % 'Schusterjungen' und 'Hurenkinder' vermeiden
+\widowpenalty=10000 
+\displaywidowpenalty=10000
+
+\parindent 0pt               % Einzug zu Absatzbeginn festlegen
+
+\setcapindent{1em}           % Zeilenumbruch bei Bildbeschreibungen.
+
+\setcounter{secnumdepth}{3}  % Strukturiertiefe bis subsubsection{} möglich
+\setcounter{tocdepth}{3}     % Dargestellte Strukturiertiefe im Inhaltsverzeichnis
+
