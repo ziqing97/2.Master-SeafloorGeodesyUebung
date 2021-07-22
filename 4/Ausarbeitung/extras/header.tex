@@ -1,0 +1,117 @@
+\documentclass[%
+paper=a4,      % alle weiteren Papierformat einstellbar
+fontsize=11pt, % Schriftgr��e (12pt, 11pt (Standard))
+BCOR1cm,       % Bindekorrektur, bspw. 1 cm
+DIV15,         % f�hrt die Satzspiegelberechnung neu aus s. scrguide 2.4
+%twoside,       % Doppelseiten
+headsepline,   %
+headings=openright, % Kapitel nur rechts beginnen
+%biblography=totoc, % Literaturverzeichnis einf�gen bibtotocnumbered: nummeriert
+parskip=half,  % Europ�ischer Satz mit Abstand zwischen Abs�tzen
+chapterprefix, % Kapitel anschreiben als Kapitel
+headsepline,   % Linie nach Kopfzeile
+titlepage,     %
+numbers=noenddot,
+%draft	       % zeigt �berlange Zeilen an
+]{scrreprt}
+
+\usepackage{pdfpages}       % Titelseite hat ein anderes Layout. Sie wird 
+                            % separat erzeugt und hier eingef�gt
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}  % Zeichencodierung
+\usepackage[english]{babel} % Worttrennung nach neuer Rechtschreibung
+%\usepackage[ngerman]{babel}
+\usepackage{siunitx}
+\usepackage{ellipsis}       % Leerraum um Auslassungspunkte
+\usepackage{fixltx2e}       % Fehlerkorrektur Zeichens�tze
+\usepackage{xspace}         % f�ge evtl. notwendiges Leerzeichen hinzu (\xspace)
+\usepackage{textcomp}
+\usepackage{bm}
+
+%\usepackage{mathptmx}           % Times + passende Mathefonts
+\usepackage{mathpazo}           % Palatino + passende Mathefonts
+\usepackage[scaled=.92]{helvet} % skalierte Helvetica als \sfdefault
+\usepackage{courier}            % Courier als \ttdefault
+
+\usepackage{graphicx}    % Einbindung von Grafiken
+\graphicspath{{Images/}} % Unterverzeichnis, in dem Grafiken abgelegt werden
+\usepackage{listings}    % Listenausgabe externer Dateien
+\lstset{language=Matlab}
+% \usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+
+\usepackage{float}      % Paket zum Erweitern der Floatumgebungen
+\usepackage[figuresright]{rotating}   % Rotieren von Objekten
+%\usepackage{hvfloat}
+\usepackage{array}      % Paket zum Erweitern der Tabelleneigenschaften
+\usepackage{booktabs}   % Paket f�r sch�nere Tabellen
+
+\usepackage{amsmath}    % erweiterte Mathematik-Umgebungen
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{subfigure}
+\renewcommand{\figurename}{Fig.}
+
+
+% Einstellungen f�r das Literaturverzeichnis
+\usepackage[round]{natbib}
+\setlength{\bibsep}{0.5\baselineskip}
+\setlength{\bibhang}{1cm}
+\bibliographystyle{agsm}
+
+% Andere Schriftarten in Koma-Script
+\setkomafont{sectioning}{\normalfont\bfseries}
+\setkomafont{captionlabel}{\rmfamily\bfseries\small}
+\setkomafont{caption}{\mdseries\itshape\small}
+\setkomafont{pagehead}{\normalfont\itshape} % Kopfzeilenschrift
+\setkomafont{descriptionlabel}{\normalfont\bfseries}
+
+% Kopf und Fu�zeilen
+\usepackage[automark]{scrlayer-scrpage}
+
+% Hyperref
+\usepackage{hyperref}
+
+% Literaturverzeichnis-Stil
+\bibliographystyle{plain}
+
+% weitere Einstellungen
+\tolerance=200               % �bervolle Zeile vermeiden
+\emergencystretch=3em
+
+\clubpenalty=10000           % 'Schusterjungen' und 'Hurenkinder' vermeiden
+\widowpenalty=10000 
+\displaywidowpenalty=10000
+
+\parindent 0pt               % Einzug zu Absatzbeginn festlegen
+
+\setcapindent{1em}           % Zeilenumbruch bei Bildbeschreibungen.
+
+\setcounter{secnumdepth}{3}  % Strukturiertiefe bis subsubsection{} m�glich
+\setcounter{tocdepth}{3}     % Dargestellte Strukturiertiefe im Inhaltsverzeichnis
+
+% Korrekturversion mit 1.5-fachem Zeilenabstand im Hauptteil:
+\newif\ifiscorrect
+%\iscorrecttrue   % Korrekturversion
+\iscorrectfalse % keine Korrekturversion
+
+%% Eigene Definitionen:
+
+% Einheiten:
+\def\ut#1{\ensuremath{\,\mathrm{#1}}}
+
+% Operatoren:
+\def\grad{\ensuremath{\mathop{\mathrm{grad}}\nolimits}}
+\def\transp#1{\ensuremath{{#1}^\mathsf{T}}}  % transpose
+\def\const{\ensuremath{\mathop{\mathrm{const.}}\nolimits}}
+
+% Formelzeichen:
+\def\vec#1{\ensuremath{\mathbf{#1}}}
+\def\matr#1{\ensuremath{\mathbf{#1}}}
+
+% Hack, um ein zus�tzliches Leerzeichen nach \input zu entfernen:
+\def\myinput#1{%
+  \endlinechar=-1 % kein Zeilenabschlusszeichen
+  \input #1\relax
+  \endlinechar `\^^M % Zeilenabschluss = Zeilenvorschub
+}
+
